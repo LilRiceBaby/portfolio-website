@@ -9,37 +9,31 @@ import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
 
-  const projects = [
+  const slotMachineProjects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "Social Media Blog API",
+      description: "RESTful API with registration, login, and CRUD for posts/comments",
       imgUrl: projImg1,
-    },
+      githubUrl: "https://github.com/LilRiceBaby/Social-media-blog-API",
+    }
+  ];
+  
+  const socialMediaProjects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "Slot Game Machine",
+      description: "A C++ command-line game simulating slot machine logic with randomness and scoring",
       imgUrl: projImg2,
-    },
+      githubUrl: "https://github.com/LilRiceBaby/slot_machine",
+    }
+  ];
+  
+  const imageConverterProjects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "HEIC to JPG Converter",
+      description: "Python GUI app using Pillow for converting images between formats",
       imgUrl: projImg3,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
+      githubUrl: "https://github.com/LilRiceBaby/Convert-HEIC-to-JPG",
+    }
   ];
 
   return (
@@ -51,40 +45,46 @@ export const Projects = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Projects</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p>This section highlights a selection of my development projects, including a Social Media Blog API, a HEIC to JPG image converter, and a CLI-based Slot Machine game. Each project demonstrates my ability to build practical, user-focused solutions using Java, Python, JavaScript, SQL, and RESTful APIs.</p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>
-                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                      <Nav.Link eventKey="first">Slot Game Machne</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                      <Nav.Link eventKey="second">Social Media Blog API</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
+                      <Nav.Link eventKey="third">HEIC to JPG Converter</Nav.Link>
                     </Nav.Item>
                   </Nav>
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="section">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
+                  <Tab.Pane eventKey="first">
+                  <p>This project is a command-line slot machine game built with Node.js, designed to simulate a simple casino experience. The game features symbol frequency control, payout multipliers, error handling, and wallet balance tracking. A casino mechanics built to demonstrate logic flow, randomness, and user input validation in JavaScript.</p>
+                  <Row>
+                    {socialMediaProjects.map((project, index) => (
+                    <ProjectCard key={index} {...project} />
+                    ))}
+                  </Row>
+                  </Tab.Pane>
+
+                  <Tab.Pane eventKey="second">
+                  <p>This project is a backend for a hypothetical social media app, where we must manage our users’ accounts as well as any messages that they submit to the application. The application will function as a micro-blogging or messaging app. Any user should be able to see all of the messages posted to the site, or they can see the messages posted by a particular user. In either case, we require a backend which is able to deliver the data needed to display this information.</p>
+                  <Row>
+                    {slotMachineProjects.map((project, index) => (
+                    <ProjectCard key={index} {...project} />
+                    ))}
+                  </Row>
+                  </Tab.Pane>
+
+                  <Tab.Pane eventKey="third">
+                  <p>HEIC (High-Efficiency Image Container) is Apple's default image format on iPhones. It's efficient, but not exactly friendly—most browsers and apps don't like it natively. So this is a simple, user-friendly Python application with a GUI to convert `.heic` image files (common on iPhones) into `.jpg` format. Powered by Tkinter and Pillow, this tool helps you to handle Apple’s odd image formats.</p>
+                  <Row>
+                    {imageConverterProjects.map((project, index) => (
+                    <ProjectCard key={index} {...project} />
+                    ))}
+                  </Row>
+                  </Tab.Pane>
                   </Tab.Content>
                 </Tab.Container>
               </div>}
